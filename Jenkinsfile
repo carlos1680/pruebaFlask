@@ -25,8 +25,11 @@ pipeline {
 			agent any
 			steps {
 				sshagent(credentials: ['MiVpsLogin']) {
-				  // sh "ssh -tt root@server.mechabios.com 'docker-compose -f /var/data/infraestructura/docker/fuentes/testing/ docker-compose-testing.yaml up -d --force-recreate --build flesk'"
-				  sh "ssh -tt root@server.mechabios.com ls"
+				  // sh "ssh -tt root@server.mechabios.com 'docker-compose -f /var/data/infraestructura/docker/fuentes/testing/docker-compose-testing.yaml up -d --force-recreate --build flesk'"
+				  
+				  //#!/bin/bash
+				  //ssh -tt root@server.mechabios.com "cd /var/data/infraestructura/ && docker-compose up -d --do-deps --build python"
+				  ssh -tt root@server.mechabios.com "cd /var/data/infraestructura/docker/fuentes/testing/ && docker-compose -f docker-compose-testing.yaml up -d --no-deps --build flesk"
 				}
 			}
 		}
