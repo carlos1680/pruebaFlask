@@ -15,7 +15,7 @@ pipeline {
 		stage('Docker Push') {
 			agent any
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'DockerPirizito', passwordVariable: 'DockerPirizitoPassword', usernameVariable: 'DockerPirizitoHubUser')]) {
+				withCredentials([usernamePassword(credentialsId: 'DockerPirizito', passwordVariable: 'DockerPirizitoPassword', usernameVariable: 'DockerPirizitoUser')]) {
 					sh "docker login -u ${env.DockerPirizitoUser} -p ${env.DockerPirizitoPassword}"
 					sh 'docker push pirizito/prueba_plesk_1:latest'
 				}
