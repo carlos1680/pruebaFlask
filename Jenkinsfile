@@ -29,7 +29,7 @@ pipeline {
 				  
 				  //#!/bin/bash
 				  //ssh -tt root@server.mechabios.com "cd /var/data/infraestructura/ && docker-compose up -d --do-deps --build python"
-				  sh "ssh -i /home/jenkins/.ssh/mechabios -tt root@server.mechabios.com 'cd /var/data/infraestructura/docker/fuentes/testing/ && docker-compose -f docker-compose-testing.yaml up -d --no-deps --build flesk'"
+				  sh "ssh -tt root@server.mechabios.com 'cd /var/data/infraestructura/docker/fuentes/testing/ && docker-compose -f docker-compose-testing.yaml up -d --no-deps --build flesk'"
 				}
 			}
 		}
