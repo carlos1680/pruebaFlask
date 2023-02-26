@@ -21,7 +21,7 @@ pipeline {
 				}
 			}
 		}
-		stage{
+		stage{('Actualizar contenedor')
 			agent any
 			steps {
 				sshagent(credentials: ['MiVpsLogin']) {
